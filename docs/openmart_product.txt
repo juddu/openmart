@@ -1,0 +1,50 @@
+managedbasedocument 
+	uid
+	version
+	startDate
+	endDate
+	status 
+	active
+
+productcaltalog : managedbasedocument
+	productCode
+	shortName
+	longName
+	brand 
+	type
+	group
+	manufacturer 
+	shortDesc
+	longDesc
+	specs
+	images
+	unit
+	price
+	currency
+	tags 
+	similarProducts 
+
+productinventory
+	uid: productCode
+	quantity 
+	unit
+	price
+	
+	
+productreview
+	uid:	DBlink(ProductCode)
+	userId
+	userDetails
+	reviewDate
+	liked
+	recommended
+	rating 
+	testimonial
+
+
+	 
+	
+	
+		
+	
+		

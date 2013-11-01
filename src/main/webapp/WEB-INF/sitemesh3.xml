@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<sitemesh>
+  <mapping path="/app/*" decorator="/WEb-INF/decorators/main-layout.jsp"/>
+</sitemesh>
