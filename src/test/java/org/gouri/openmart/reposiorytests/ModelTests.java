@@ -143,7 +143,7 @@ public class ModelTests {
          pc.setShortdesc("Finest Apple picked from the Rajeev Inductries Gardens #3");
          pc.setPrice(200f);
          //pc.getUid().setVersion((short)1);
-         ProductCatalog newProduct = productRepository.uodateProduct(pc);
+         ProductCatalog newProduct = productRepository.updateProduct(pc);
          
          //assertEquals(productRepo.count(), 2);
          Assert.assertEquals(newProduct.getId().getVersion(), new Integer(2));

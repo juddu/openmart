@@ -16,11 +16,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * @author juddu
  */
 public class OpenmartSequence {
-    
+
     @Inject
     @Qualifier("sequenceConfig")
     private PropertiesConfiguration config;
-    
+
     private String id;
     private AtomicReference<Long> value;
 
@@ -33,7 +33,7 @@ public class OpenmartSequence {
         this.config = config;
         Long val = config.getLong(id);
         System.out.println("Value of seq " + id + " is " + val);
-        if(val == null) {
+        if (val == null) {
             this.value = new AtomicReference<Long>(new Long(1));
         } else {
             this.value = new AtomicReference<Long>(val);
@@ -65,10 +65,14 @@ public class OpenmartSequence {
                 .append(value).append("]");
         return builder.toString();
     }
-    
+
     @PreDestroy
-    protected void updateBeforeClose() throws ConfigurationException {
-        config.setProperty(id, value.get());
-        config.save();
+    protected void updateBeforeClose() {
+        try {
+            config.setProperty(id, value.get());
+            config.save();
+        } catch (Exception e) {
+            System.out.println("Exception thrown from OpenmartSequence->" + e.getMessage());
+        }
     }
 }

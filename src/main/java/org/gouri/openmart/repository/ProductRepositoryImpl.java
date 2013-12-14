@@ -2,9 +2,11 @@ package org.gouri.openmart.repository;
 
 import org.gouri.openmart.model.OpenmartSequence;
 import org.gouri.openmart.model.ProductCatalog;
+import org.gouri.openmart.util.scope.RequestScope;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,6 +19,7 @@ import java.util.List;
  * change this template use File | Settings | File Templates.
  */
 @Named
+@Scope("prototype")
 public class ProductRepositoryImpl {
 
 	private static Logger log = LoggerFactory
@@ -43,7 +46,7 @@ public class ProductRepositoryImpl {
 	}
 
 	// @Transactional
-	public ProductCatalog uodateProduct(ProductCatalog newProduct) {
+	public ProductCatalog updateProduct(ProductCatalog newProduct) {
 		log.debug("update Product->{}", newProduct);
 		ProductCatalog current = repository.findOneByActiveAndKey(
 				newProduct.isActive(), newProduct.getKey());
