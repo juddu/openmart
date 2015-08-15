@@ -9,11 +9,8 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 
 /**
- * Created with IntelliJ IDEA.
- * User: juddu
- * Date: 5/21/13
- * Time: 10:46 PM
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: juddu Date: 5/21/13 Time: 10:46 PM To
+ * change this template use File | Settings | File Templates.
  */
 public class BaseDataRepository<Entity, Key> {
 
